@@ -3,74 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Premium Notepad V2</title>
+  <title>Amir Notes | Premium Notes App</title>
+  <meta name="description" content="Amir Notes is a premium stylish notes app with folders, tags, autosave and more." />
+  <meta name="theme-color" content="#7c3aed" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="bg-orb orb1"></div>
-  <div class="bg-orb orb2"></div>
-  <div class="bg-orb orb3"></div>
+<body class="landing-body">
+  <div class="landing-bg orb1"></div>
+  <div class="landing-bg orb2"></div>
 
-  <div class="app-shell">
-    <aside class="sidebar glass">
-      <div class="brand-row">
-        <div>
-          <p class="eyebrow">PRODUCTIVITY</p>
-          <h1>Premium Notepad</h1>
-        </div>
-        <button id="newNoteBtn" class="primary-btn">+ New</button>
+  <header class="landing-header">
+    <div class="landing-logo">
+      <div class="logo-icon">A</div>
+      <div>
+        <p class="eyebrow">AMIR PRODUCTIVITY</p>
+        <h1>Amir Notes</h1>
       </div>
+    </div>
+    <a class="primary-btn" href="app.html">Open App</a>
+  </header>
 
-      <div class="search-wrap">
-        <input type="text" id="searchInput" placeholder="Search notes..." />
-      </div>
+  <main class="landing-main">
+    <section class="hero glass">
+      <div class="hero-text">
+        <p class="eyebrow">PREMIUM NOTE EXPERIENCE</p>
+        <h2>Write smarter. Organize better. Think clearly.</h2>
+        <p class="hero-desc">
+          Amir Notes helps you create, organize, search, tag, and manage your notes
+          in a premium beautiful workspace.
+        </p>
 
-      <div class="sidebar-meta">
-        <span id="noteCount">0 notes</span>
-        <span>Local autosave</span>
-      </div>
-
-      <div id="notesList" class="notes-list"></div>
-    </aside>
-
-    <main class="editor glass">
-      <div class="editor-top">
-        <div class="title-wrap">
-          <input type="text" id="noteTitle" placeholder="Untitled note" maxlength="120" />
-          <div class="date-row">
-            <span id="createdAt">Created: --</span>
-            <span id="updatedAt">Updated: --</span>
-          </div>
-        </div>
-
-        <div class="action-row">
-          <button id="pinNoteBtn" class="icon-btn" title="Pin note">📌</button>
-          <button id="duplicateNoteBtn" class="icon-btn" title="Duplicate note">⧉</button>
-          <button id="downloadNoteBtn" class="icon-btn" title="Download note">⬇</button>
-          <button id="clearNoteBtn" class="icon-btn warn" title="Clear note">⌫</button>
-          <button id="deleteNoteBtn" class="danger-btn" title="Delete note">Delete</button>
+        <div class="hero-actions">
+          <a class="primary-btn" href="app.html">Launch App</a>
+          <a class="tool-btn" href="#features">See Features</a>
         </div>
       </div>
 
-      <div class="editor-body">
-        <textarea id="noteContent" placeholder="Start writing something beautiful..."></textarea>
+      <div class="hero-card glass">
+        <h3>Why Amir Notes?</h3>
+        <ul>
+          <li>✅ Premium design</li>
+          <li>✅ Folders and tags</li>
+          <li>✅ Fast autosave</li>
+          <li>✅ Export and import notes</li>
+          <li>✅ Light and dark theme</li>
+          <li>✅ Installable PWA</li>
+          <li>✅ Offline support</li>
+        </ul>
       </div>
+    </section>
 
-      <div class="editor-footer">
-        <div class="stats">
-          <span id="wordCount">0 words</span>
-          <span id="charCount">0 characters</span>
-        </div>
-        <div class="status-wrap">
-          <span class="shortcut-hint">Tip: Ctrl/Cmd + N to create a note</span>
-          <span id="saveStatus">Ready</span>
-        </div>
+    <section id="features" class="features-section">
+      <div class="feature-card glass">
+        <h3>Folders</h3>
+        <p>Separate personal, work, ideas, study, and daily notes into organized folders.</p>
       </div>
-    </main>
-  </div>
+      <div class="feature-card glass">
+        <h3>Tags</h3>
+        <p>Use tags like urgent, private, project, ideas, or tasks for instant filtering.</p>
+      </div>
+      <div class="feature-card glass">
+        <h3>Autosave</h3>
+        <p>Your notes save automatically in your browser while you write.</p>
+      </div>
+      <div class="feature-card glass">
+        <h3>Import / Export</h3>
+        <p>Backup all notes and restore them anytime using JSON export and import.</p>
+      </div>
+      <div class="feature-card glass">
+        <h3>Installable</h3>
+        <p>Install Amir Notes on supported devices and open it like a real app.</p>
+      </div>
+      <div class="feature-card glass">
+        <h3>Offline Ready</h3>
+        <p>Use the app even without internet after the first successful load.</p>
+      </div>
+    </section>
+  </main>
 
-  <div id="toast" class="toast">Saved successfully</div>
+  <footer class="landing-footer">
+    <p>Made with ambition by <strong>Amir</strong></p>
+  </footer>
 
-  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js");
+      });
+    }
+  </script>
 </body>
 </html>

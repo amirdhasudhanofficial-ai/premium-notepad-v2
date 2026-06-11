@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amir Notes App</title>
+  <meta name="description" content="Premium notes workspace by Amir." />
+  <meta name="theme-color" content="#7c3aed" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+  <div class="bg-orb orb3"></div>
+
+  <div class="app-shell">
+    <aside class="sidebar glass">
+      <div class="brand-row">
+        <div class="brand-block">
+          <div class="logo-wrap">
+            <div class="logo-icon">A</div>
+            <div>
+              <p class="eyebrow">AMIR PRODUCTIVITY</p>
+              <h1>Amir Notes</h1>
+            </div>
+          </div>
+        </div>
+        <button id="newNoteBtn" class="primary-btn">+ New</button>
+      </div>
+
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Search notes..." />
+      </div>
+
+      <div class="top-tools">
+        <button id="themeToggleBtn" class="tool-btn">🌙 Theme</button>
+        <button id="exportNotesBtn" class="tool-btn">⬆ Export</button>
+        <button id="importNotesBtn" class="tool-btn">⬇ Import</button>
+        <input type="file" id="importFileInput" accept=".json" hidden />
+      </div>
+
+      <div class="folder-section glass-lite">
+        <div class="section-header">
+          <h3>Folders</h3>
+          <button id="addFolderBtn" class="mini-btn">+ Add</button>
+        </div>
+        <div id="folderList" class="folder-list"></div>
+      </div>
+
+      <div class="tag-section glass-lite">
+        <div class="section-header">
+          <h3>Tags</h3>
+        </div>
+        <div id="tagFilterList" class="tag-filter-list"></div>
+      </div>
+
+      <div class="install-box glass-lite">
+        <div class="section-header">
+          <h3>Install App</h3>
+        </div>
+        <button id="installAppBtn" class="primary-btn install-btn" style="display:none;">Install Amir Notes</button>
+        <p class="install-hint">You can install this app on supported browsers for a native-like experience.</p>
+      </div>
+
+      <div class="sidebar-meta">
+        <span id="noteCount">0 notes</span>
+        <span>Autosave enabled</span>
+      </div>
+
+      <div id="notesList" class="notes-list"></div>
+
+      <div class="sidebar-footer">
+        <p>Crafted with care by <strong>Amir</strong></p>
+      </div>
+    </aside>
+
+    <main class="editor glass">
+      <div class="editor-top">
+        <div class="title-wrap">
+          <input type="text" id="noteTitle" placeholder="Untitled note" maxlength="120" />
+          <div class="date-row">
+            <span id="createdAt">Created: --</span>
+            <span id="updatedAt">Updated: --</span>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button id="pinNoteBtn" class="icon-btn" title="Pin note">📌</button>
+          <button id="duplicateNoteBtn" class="icon-btn" title="Duplicate note">⧉</button>
+          <button id="downloadNoteBtn" class="icon-btn" title="Download note">⬇</button>
+          <button id="clearNoteBtn" class="icon-btn warn" title="Clear note">⌫</button>
+          <button id="deleteNoteBtn" class="danger-btn" title="Delete note">Delete</button>
+        </div>
+      </div>
+
+      <div class="note-meta-tools">
+        <div class="folder-picker-wrap">
+          <label for="noteFolderSelect">Folder</label>
+          <select id="noteFolderSelect"></select>
+        </div>
+
+        <div class="tags-wrap">
+          <label for="noteTagsInput">Tags</label>
+          <input type="text" id="noteTagsInput" placeholder="Example: work, urgent, ideas" />
+        </div>
+      </div>
+
+      <div class="editor-body">
+        <textarea id="noteContent" placeholder="Write your ideas, plans, and thoughts..."></textarea>
+      </div>
+
+      <div class="editor-footer">
+        <div class="stats">
+          <span id="wordCount">0 words</span>
+          <span id="charCount">0 characters</span>
+        </div>
+        <div class="status-wrap">
+          <span class="shortcut-hint">Ctrl/Cmd + N to create note</span>
+          <span id="saveStatus">Ready</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="toast" class="toast">Done</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
